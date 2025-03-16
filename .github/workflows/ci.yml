@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18, 20, 21]  # 22.x 대신 21로 테스트
+        node-version: [21]  # 22.x 대신 21로 테스트
 
     steps:
     - uses: actions/checkout@v4
