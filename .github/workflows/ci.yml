@@ -30,9 +30,12 @@ jobs:
           echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
           cat .env
 
-      - name: ✨ 패키지 설치
+           - name: ✨ 패키지 설치
         working-directory: ./
-        run: yarn
+        run: |
+          yarn install
+          yarn husky install
+
         
       - name: ✨ 빌드 과정을 시작
         working-directory: ./
