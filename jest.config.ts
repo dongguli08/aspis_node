@@ -8,5 +8,4 @@ export default {
     transform: {
       '^.+\\.(t|j)s$': 'ts-jest',
     },
-  };
-  
+};
