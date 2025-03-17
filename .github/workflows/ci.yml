@@ -11,7 +11,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.18.0]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - name: ✅ 체크아웃 source code.
@@ -23,20 +22,16 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: ⚙️ 환경변수를 설정합니다.
-        working-directory: ./
         run: |
           pwd
           touch .env
           echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
           cat .env
 
-           - name: ✨ 패키지 설치
-        working-directory: ./
+      - name: ✨ 패키지 설치
         run: |
           yarn install
           yarn husky install
 
-        
       - name: ✨ 빌드 과정을 시작
-        working-directory: ./
         run: yarn run build
